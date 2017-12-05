@@ -1,5 +1,6 @@
 // C++11 std::string test
-// Workaround: g++ -std=c++11 -D_GLIBCXX_USE_C99 -D__LONG_LONG_SUPPORTED stol.cpp
+// Workaround for gcc492: g++ -std=c++11 -D_GLIBCXX_USE_C99 -D__LONG_LONG_SUPPORTED stol.cpp
+// Workaround for gcc710: g++ -std=c++11 -D_GLIBCXX_USE_C99_STDLIB stol.cpp
 
 #include <string>
 #include <iostream>
