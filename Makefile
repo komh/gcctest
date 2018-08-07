@@ -54,6 +54,9 @@ callconv.o : callconv.c
 
 CLEAN_ETC += callconv.sym
 
+stack_protector_strong.o: CFLAGS += -fstack-protector-strong
+stack_protector_strong.exe: LDFLAGS += -fstack-protector-strong
+
 xs.exe : xs.o
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $^
 	./$@ > /dev/null
