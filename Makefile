@@ -66,6 +66,7 @@ stack_protector_strong_omf.exe: LDFLAGS += -fstack-protector-strong
 
 clean :
 	$(RM) $(TEST_OBJS)
+	$(RM) $(TEST_OBJS:.o=.obj)
 	$(RM) $(TEST_EXES)
 	$(RM) $(CLEAN_ETC)
 
