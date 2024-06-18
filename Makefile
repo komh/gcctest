@@ -56,13 +56,24 @@ callconv.o : callconv.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 	emxexp $@ > $(@:.o=.sym)
 
-CLEAN_ETC += callconv.sym
+CLEAN_ETC += callconv.sym defexename_omf.c a.exe
 
 stack_protector_strong.o  : CFLAGS += -fstack-protector-strong
 stack_protector_strong.obj: CFLAGS += -fstack-protector-strong
 
 stack_protector_strong.exe    : LDFLAGS += -fstack-protector-strong
 stack_protector_strong_omf.exe: LDFLAGS += -fstack-protector-strong
+
+defexename.exe: defexename.c
+	$(LD) $(LDFLAGS) $<
+	test -f $@ > /dev/null
+
+defexename_omf.c: defexename.c
+	cp -f $< $@
+
+defexename_omf.exe: defexename_omf.c
+	$(LD) $(LDFLAGS) -Zomf $<
+	test -f $@ > /dev/null
 
 clean :
 	$(RM) $(TEST_OBJS)

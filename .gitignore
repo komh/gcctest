@@ -4,3 +4,4 @@
 *.exe
 *.sym
 *.log
+defexename_omf.c
