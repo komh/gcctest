@@ -1,5 +1,5 @@
 // C11 stdalign.h test
-#include <stdatomic.h>
+#include <stdalign.h>
 
 int main()
 {
