@@ -68,11 +68,10 @@ defexename.exe: defexename.c
 	$(LD) $(LDFLAGS) $<
 	test -f $@ > /dev/null
 
-defexename_omf.c: defexename.c
-	cp -f $< $@
-
-defexename_omf.exe: defexename_omf.c
-	$(LD) $(LDFLAGS) -Zomf $<
+defexename_omf.exe: defexename.c
+	cp -f $< $(<:.c=_omf.c)
+	$(LD) $(LDFLAGS) -Zomf $(<:.c=_omf.c)
+	$(RM) $(<:.c=_omf.c)
 	test -f $@ > /dev/null
 
 clean :
