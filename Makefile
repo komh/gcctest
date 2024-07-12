@@ -65,11 +65,13 @@ stack_protector_strong.exe    : LDFLAGS += -fstack-protector-strong
 stack_protector_strong_omf.exe: LDFLAGS += -fstack-protector-strong
 
 defexename.exe: defexename.c
+	$(RM) $@
 	$(LD) $(LDFLAGS) $<
 	test -f $@ > /dev/null
 
 defexename_omf.exe: defexename.c
 	cp -f $< $(<:.c=_omf.c)
+	$(RM) $@
 	$(LD) $(LDFLAGS) -Zomf $(<:.c=_omf.c)
 	$(RM) $(<:.c=_omf.c)
 	test -f $@ > /dev/null
