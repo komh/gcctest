@@ -20,7 +20,7 @@ int main()
 {
     std::exception_ptr eptr;
     try {
-        std::string().at(1); // this generates an std::out_of_range
+        (void)std::string().at(1); // this generates an std::out_of_range
     } catch(...) {
         eptr = std::current_exception(); // capture
     }
