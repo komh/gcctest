@@ -3,5 +3,7 @@
 
 int main( void )
 {
-    return __test_sse();
+    __test_sse();
+
+    return 0;
 }
